@@ -6,7 +6,7 @@ spec:
   generators:
     - git:
         repoURL: git@github.com:brunoarruda/devops-challenge-base-deployment.git
-        revision: master
+        revision: HEAD
         directories:
         - path: applications/*
   template:
