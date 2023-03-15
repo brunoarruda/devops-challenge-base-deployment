@@ -35,7 +35,7 @@ spec:
                   value: "10000"
                   restartPolicy: OnFailure
                 - name: TARGET_URL
-                  value: http://java-backend.challenge.svc.cluster.local
+                  value: http://java-backend.challenge.svc.cluster.local/test
               volumeMounts:
                 - name: go-packages
                   mountPath: /go/pkg
