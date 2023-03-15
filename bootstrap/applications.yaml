@@ -11,9 +11,13 @@ spec:
         - path: applications/*
   template:
     metadata:
-      name: '{{path.basenameNormalized}}'
+      name: '{{path.basenameNormalized}}-init'
     spec:
       project: 'default'
+      source:
+        repoURL: git@github.com:brunoarruda/devops-challenge-base-deployment.git
+        path: '{{path}}'
+        targetRevision: HEAD
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: 'challenge'
