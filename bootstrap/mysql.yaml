@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mysql
+  namespace: argocd
+spec:
+  destination:
+    namespace: challenge
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: git@github.com:brunoarruda/devops-challenge-base-deployment.git
+    targetRevision: HEAD
+    path: applications/mysql
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
