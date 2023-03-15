@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: Job
 metadata:
   name: bombardier
@@ -34,3 +34,5 @@ spec:
           volumeMounts:
             - name: go-packages
               mountPath: /go/pkg
+      restartPolicy: Never
+  backoffLimit: 5
