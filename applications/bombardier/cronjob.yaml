@@ -32,10 +32,10 @@ spec:
                 - bombardier
               args:
                 - -c
-                - $MAX_CONNECTIONS
+                - "$MAX_CONNECTIONS"
                 - -n
-                - $NUM_REQUESTS
-                - $TARGET_URL
+                - "$NUM_REQUESTS"
+                - "$TARGET_URL"
               env:
                 - name: MAX_CONNECTIONS
                   value: "100"
@@ -46,5 +46,5 @@ spec:
               volumeMounts:
                 - name: go-data
                   mountPath: /go
-          restartPolicy: OnFailure
+          restartPolicy: Never
       backoffLimit: 5
