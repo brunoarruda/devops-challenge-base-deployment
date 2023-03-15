@@ -61,3 +61,5 @@ spec:
           env:
             - name: ES_JAVA_OPTS
               value: -Xmx100m -Xms100m
+            - name: DB_STRING_CONNECTION
+              value: Server=mysql.challenge.svc.cluster.local:3306;Database=challenge;Uid=application;Pwd=p4ssw0rd;
