@@ -30,6 +30,7 @@ spec:
               imagePullPolicy: IfNotPresent
               command:
                 - bombardier
+              args:
                 - -c
                 - $MAX_CONNECTIONS
                 - -n
