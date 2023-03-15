@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-applications
+spec:
+  generators:
+  - matrix:
+      generators:
+      - git:
+          repoURL:
+          revision: HEAD
+          directories:
+          - path: applications/*
+  template:
+    metadata:
+      name: '{{path.basenameNormalized}}'
+    spec:
+      project: 'default'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'challenge'
+      syncPolicy:
+        automated:
+           prune: true
+           selfHeal: true
+        syncOptions:
+            - CreateNamespace=true
