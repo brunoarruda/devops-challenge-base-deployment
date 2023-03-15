@@ -20,6 +20,13 @@ spec:
         app: java-backend
         project: java-backend
     spec:
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config  # Name of the configMap
+            items:
+              - key: nginx.conf  # Name of the item we had used inside our ConfigMap (under data:)
+                path: nginx.conf
       containers:
         - name: java-backend
           image: nginx:latest
@@ -57,7 +64,7 @@ spec:
           volumeMounts:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
-              subPath: nginx-config
+              subPath: nginx.conf
           env:
             - name: ES_JAVA_OPTS
               value: -Xmx100m -Xms100m
