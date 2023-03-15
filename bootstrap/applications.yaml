@@ -4,13 +4,11 @@ metadata:
   name: apps-applications
 spec:
   generators:
-  - matrix:
-      generators:
-      - git:
-          repoURL: git@github.com:brunoarruda/devops-challenge-base-deployment.git
-          revision: HEAD
-          directories:
-          - path: applications/*
+    - git:
+        repoURL: git@github.com:brunoarruda/devops-challenge-base-deployment.git
+        revision: master
+        directories:
+        - path: applications/*
   template:
     metadata:
       name: '{{path.basenameNormalized}}'
