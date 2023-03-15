@@ -21,7 +21,7 @@ spec:
                 - go install github.com/codesenberg/bombardier@v1.2.5
               volumeMounts:
                 - name: go-packages
-                  mountPath: /go/pkg
+                  mountPath: /go/bin
           containers:
             - name: golang
               image: golang:1.20
@@ -38,6 +38,6 @@ spec:
                   value: http://java-backend.challenge.svc.cluster.local/test
               volumeMounts:
                 - name: go-packages
-                  mountPath: /go/pkg
+                  mountPath: /go/bin
           restartPolicy: Never
       backoffLimit: 5
